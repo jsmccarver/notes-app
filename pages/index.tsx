@@ -40,7 +40,7 @@ const Home: NextPage = () => {
     <div className="wrapper">
       <div className="header-container">
         <div className="header">
-          <h1>Jared's Note Taker</h1>
+          <h1>Jared&apos;s Note Taker</h1>
         </div>
       </div>
       <div className="container">
