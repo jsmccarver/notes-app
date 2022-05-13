@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { Note } from "./note";
+import { Note } from "../types/note";
 import { v4 } from "uuid";
 import { Formik, Field, Form } from "formik";
 
