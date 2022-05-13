@@ -14,12 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
-.header-container{
-  background-color:coral;
+.header-container {
+  background-color: coral;
   color: #fff;
   height: 65px;
 }
-.header{
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
   max-width: 95vw;
   margin: 0 auto;
   overflow: none !important;
@@ -30,12 +35,19 @@ a {
   height: 100%;
   width: 100%;
 }
-.form{
+.form {
   width: 150px;
   display: flex;
   flex-direction: column;
 }
-.container{
+.container {
+  margin: 0;
+  padding: 0;
+  background: repeating-conic-gradient(#e9e9e9 49.5% 0%, transparent 50% 0) 0% 0/
+    100% 100%;
+  flex: 1;
+}
+.notes {
   max-width: 1250px;
   margin: 0 auto;
   display: grid;

@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { Note } from "./note";
 import { v4 } from "uuid";
-import { Formik, Field, Form, Textarea } from "formik";
+import { Formik, Field, Form } from "formik";
 
 const Home: NextPage = () => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -37,48 +37,50 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <div className="header-container">
         <div className="header">
           <h1>Jared's Note Taker</h1>
         </div>
       </div>
       <div className="container">
-        <div>
-          <h1>Create Notes</h1>
-          <Formik
-            initialValues={{ title: "", color: "", text: "" }}
-            onSubmit={async (values) => {
-              addNote(values.title, values.text, values.color);
-            }}
-          >
-            <Form className="form">
-              <label htmlFor="title">Title</label>
-              <Field name="title" type="title" />
-              <label htmlFor="text">Text</label>
-              <Field
-                as="textarea"
-                name="text"
-                placeholder="Text (optional)"
-                label="Body"
-                type="text"
-              />
-              <button type="submit">Submit</button>
-            </Form>
-          </Formik>
-        </div>
-        <div>
+        <div className="notes">
           <div>
-            <h1>Notes</h1>
+            <h1>Create Notes</h1>
+            <Formik
+              initialValues={{ title: "", color: "", text: "" }}
+              onSubmit={async (values) => {
+                addNote(values.title, values.text, values.color);
+              }}
+            >
+              <Form className="form">
+                <label htmlFor="title">Title</label>
+                <Field name="title" type="title" />
+                <label htmlFor="text">Text</label>
+                <Field
+                  as="textarea"
+                  name="text"
+                  placeholder="Text (optional)"
+                  label="Body"
+                  type="text"
+                />
+                <button type="submit">Submit</button>
+              </Form>
+            </Formik>
           </div>
           <div>
-            {notes.map((note) => (
-              <>
-                <div>{note.title}</div>
-                <div>{note.text}</div>
-                <div>{note.date}</div>
-              </>
-            ))}
+            <div>
+              <h1>Notes</h1>
+            </div>
+            <div>
+              {notes.map((note) => (
+                <>
+                  <div>{note.title}</div>
+                  <div>{note.text}</div>
+                  <div>{note.date}</div>
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </div>
